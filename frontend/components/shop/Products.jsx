@@ -48,7 +48,7 @@ const ProductCard = ({ id, img, brand, name, price }) => {
   const addToCart = async () => {
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/cart", {
+      const response = await axios.post("https://glow-cart.onrender.com/cart", {
         productId: id,
         name,
         price,
