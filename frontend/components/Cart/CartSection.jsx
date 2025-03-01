@@ -17,7 +17,7 @@ const CartSection = () => {
 
   const fetchCartItems = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/cart");
+      const response = await axios.get("https://glow-cart.onrender.com/cart");
       setCartItems(response.data);
     } catch (error) {
       console.error("Error fetching cart items", error);
@@ -33,7 +33,7 @@ const CartSection = () => {
 
   const confirmDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/cart/${id}`);
+      await axios.delete(`https://glow-cart.onrender.com/cart/${id}`);
       setCartItems(cartItems.filter((item) => item._id !== id));
     } catch (error) {
       console.error("Error removing item", error);
@@ -45,7 +45,7 @@ const CartSection = () => {
   const handleQuantityChange = async (id, quantity) => {
     if (quantity < 1) return;
     try {
-      await axios.put(`http://localhost:5000/cart/${id}`, { quantity });
+      await axios.put(`https://glow-cart.onrender.com/cart/${id}`, { quantity });
       setCartItems(
         cartItems.map((item) =>
           item._id === id ? { ...item, quantity } : item
