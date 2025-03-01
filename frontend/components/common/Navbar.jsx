@@ -41,7 +41,7 @@ const Navbar = () => {
   useEffect(() => {
     const fetchCartCount = async () => {
       try {
-        const response = await fetch("http://localhost:5000/cart");
+        const response = await fetch("https://glow-cart.onrender.com/cart");
         const data = await response.json();
         setCartCount(data.length);
       } catch (error) {
